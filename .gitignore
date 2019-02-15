@@ -82,7 +82,3 @@ dist
 
 # Service worker
 sw.*
-
-travis
-
-travis.*
