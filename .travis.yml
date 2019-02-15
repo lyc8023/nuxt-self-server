@@ -13,7 +13,8 @@ before_install:
 - chmod 600 ~/.ssh/id_rsa_deploy
 - echo -e "Host 47.99.102.212\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 addons:
-  ssh_known_hosts: 47.99.102.212
+  ssh_known_hosts: 
+  - 47.99.102.212
 install:
 - npm install
 - npm run generate
