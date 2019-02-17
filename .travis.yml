@@ -13,8 +13,7 @@ before_install:
 - chmod 600 ~/.ssh/id_rsa_deploy
 - echo -e "Host 47.99.102.212\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 addons:
-  ssh_known_hosts: 
-  - 47.99.102.212
+  ssh_known_hosts: 47.99.102.212
 install:
 - npm install
 - npm run generate
@@ -24,4 +23,4 @@ after_success:
 - npm prune --production
 - tar -jcf test.tar.bz2 *
 - scp test.tar.bz2 root@47.99.102.212:~/data/html
-- ssh root@47.99.102.212 'mkdir -p test && tar -jxf test.tar.bz2 -C test'
+- ssh root@47.99.102.212 StrictHostKeyChecking=no 'mkdir -p test && tar -jxf test.tar.bz2 -C test'
