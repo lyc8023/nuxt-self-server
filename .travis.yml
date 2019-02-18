@@ -20,10 +20,6 @@ install:
 script:
 - echo "Skipping tests"
 after_success:
-# - npm prune --production
-# - tar -jcf test.tar.bz2 *
-# - scp test.tar.bz2 root@47.99.102.212:~/data/html
-# - ssh root@47.99.102.212 -o StrictHostKeyChecking=no 'mkdir -p test && tar -jxf test.tar.bz2 -C test'
 - chmod 600 ~/.ssh/id_rsa
-- ssh root@47.99.102.212 -o StrictHostKeyChecking=no 'cd ~/data/html && git pull && npm run generate'
-
+- ssh root@47.99.102.212 -o StrictHostKeyChecking=no 'cd ~/data/html && git pull &&
+  npm run generate'
