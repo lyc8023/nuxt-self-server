@@ -20,5 +20,9 @@ script:
 addons:
   ssh_known_hosts: 47.99.102.212
 after_success:
-- ssh root@47.99.102.212 -o StrictHostKeyChecking=no 'cd /data/html/nuxt && git pull
-  && npm run generate'
+# - ssh root@47.99.102.212 -o StrictHostKeyChecking=no 'cd /data/html/nuxt && git pull
+#   && npm run generate'
+- npm prune --production  # 删除devDependencies
+- tar -jcf test.bz2 *    # 打包并压缩代码
+- scp test.bz2 root@47.99.102.212:~/data/html/  # 复制到生产服务器上
+- ssh root@47.99.102.212 'mkdir -p test && tar -jxf test.tar.bz2 -C test' # 解压
