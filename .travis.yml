@@ -20,5 +20,5 @@ script:
 addons:
   ssh_known_hosts: 47.99.102.212
 after_success:
-- ssh root@47.99.102.212 -o StrictHostKeyChecking=no 'cd ~/data/html/nuxt && git pull
+- ssh root@47.99.102.212 -o StrictHostKeyChecking=no 'cd /data/html/nuxt && git pull
   && npm run generate'
