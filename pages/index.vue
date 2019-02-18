@@ -6,7 +6,7 @@
         nuxt-self-server
       </h1>
       <h2 class="subtitle">
-        Welcome to the iView + Nuxt.js template
+        Welcome to the iView + Nuxt.js template + travisCI
       </h2>
       <div class="links">
         <Button type="primary" target="_blank" to="https://nuxtjs.org/">
