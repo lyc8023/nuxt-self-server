@@ -18,8 +18,8 @@ install:
 script:
 - echo "Skipping tests"
 after_success:
-- chmod 600 ~/.ssh/id_rsa
-- ssh root@47.99.102.212 -o StrictHostKeyChecking=no 'cd ~/data/html && git pull &&
+- chmod 600 ~/.ssh/id_rsa_deploy
+- ssh root@47.99.102.212 -o StrictHostKeyChecking=no 'cd ~/data/html/nuxt && git pull &&
   npm run generate'
 addons:
   ssh_known_hosts: 47.99.102.212
