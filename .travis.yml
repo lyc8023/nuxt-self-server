@@ -12,8 +12,6 @@ before_install:
   -in id_rsa_deploy.enc -out ~/.ssh/id_rsa_deploy -d
 - chmod 600 ~/.ssh/id_rsa_deploy
 - echo -e "Host 47.99.102.212\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-addons:
-  ssh_known_hosts: 47.99.102.212
 install:
 - npm install
 - npm run generate
@@ -23,3 +21,5 @@ after_success:
 - chmod 600 ~/.ssh/id_rsa
 - ssh root@47.99.102.212 -o StrictHostKeyChecking=no 'cd ~/data/html && git pull &&
   npm run generate'
+addons:
+  ssh_known_hosts: 47.99.102.212
