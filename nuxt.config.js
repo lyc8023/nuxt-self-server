@@ -2,7 +2,9 @@ const pkg = require('./package')
 
 module.exports = {
   mode: 'spa',
-
+  router: {
+    base: '/nuxt/'
+  },
   /*
   ** Headers of the page
   */
