@@ -14,10 +14,11 @@ before_install:
 # - echo -e "Host 47.99.102.212\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 install:
 - npm install
-- npm run generate
+- npm run build
+# - npm run generate
 script:
 - echo "Skipping tests"
 addons:
   ssh_known_hosts: 47.99.102.212
 after_success:
-- rsync -az --delete ./dist/* root@47.99.102.212:/data/html/nuxt
+- rsync -az --delete ./dist/* root@47.99.102.212:/data/html/nuxt # copy dist文件夹下的所有文件
