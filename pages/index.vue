@@ -9,6 +9,15 @@
         Welcome to the iView + Nuxt.js template + travisCI
       </h2>
       <div class="links">
+        <router-link to="/a">
+          Page A
+        </router-link>
+        |
+        <router-link to="/about">
+          Page About
+        </router-link>
+      </div>
+      <div class="links">
         <Button type="primary" target="_blank" to="https://nuxtjs.org/">
           Documentation
         </Button>
