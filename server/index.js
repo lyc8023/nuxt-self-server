@@ -23,15 +23,19 @@ async function start() {
     const builder = new Builder(nuxt)
     await builder.build()
   }
-
+  console.log('app use start ')
   app.use(ctx => {
     ctx.status = 200
     ctx.respond = false // Bypass Koa's built-in response handling
     ctx.req.ctx = ctx // This might be useful later on, e.g. in nuxtServerInit or with nuxt-stash
+    console.log('app ctx', ctx)
     nuxt.render(ctx.req, ctx.res)
   })
 
+  console.log('app listen ')
+
   app.listen(port, host)
+  console.log(`listening on http://${host}:${port}`)
   consola.ready({
     message: `Server listening on http://${host}:${port}`,
     badge: true
