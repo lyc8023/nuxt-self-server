@@ -15,10 +15,12 @@ before_install:
 install:
 - npm install
 - npm run build
+- npm run start
 # - npm run generate
 script:
 - echo "Skipping tests"
 addons:
   ssh_known_hosts: 47.99.102.212
 after_success:
-- rsync -az --delete ./dist/* root@47.99.102.212:/data/html/nuxt # copy dist文件夹下的所有文件
+# - rsync -az --delete ./dist/* root@47.99.102.212:/data/html/nuxt # copy dist文件夹下的所有文件
+- ssh root@47.99.102.212 'cd /data/ssr && git pull && export PATH=/root/nvm/versions/node/v10.15.1/bin:$PATH && npm install && npm run build && npm run start'
